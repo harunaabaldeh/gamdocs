@@ -1,0 +1,12 @@
+using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace Application.Common.Interfaces
+{
+    public interface IApplicationDbContext
+    {
+        DbSet<IdCard> IdCards { get; }
+
+        Task<int> SaveChangesAsyn(CancellationToken cancellationToken);
+    }
+}
