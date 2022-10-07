@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from '../../Layout/index'
 
-const index = () => {
+const Index = () => {
   return (
     <Layout>
-    id card page
+   more id card page
     </Layout>
   )
 }
 
-export default index
+export default Index

@@ -4,7 +4,7 @@ import Layout from '../../Layout/index'
 const index = () => {
   return (
     <Layout>
-      passport page
+     more passport page
     </Layout>
   )
 }
