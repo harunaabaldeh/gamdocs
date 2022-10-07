@@ -31,9 +31,7 @@ const Index = () => {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          <Link to="/idcard/id" > more info</Link>
-          more info
-
+          <Link to="/idcard/id" style={{textDecoration:"none",}}> more info</Link>
         </Button>
       </CardActions>
     </Card>
