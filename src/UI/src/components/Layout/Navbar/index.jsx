@@ -1,4 +1,6 @@
+
 import React,{useState} from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,19 +17,21 @@ const Navbar = () => {
 	const handleClose = () => setOpen(false);
   
   return (
-    
+
     <Box sx={{ flexGrow: 1 }}>
     <AppBar position="static" sx={{backgroundColor: "#092749"}}>
       <Toolbar>
         <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+
           <Link to="/" style={{textDecoration:"none", color:"white"}}>GamDocs</Link>
         </Typography>
         <Button color="inherit" onClick={handleOpen}>Add</Button>
       </Toolbar>
     </AppBar>
     <RegisterForm handleOpen={handleOpen} handleClose={handleClose} open={open}/>
+
   </Box>
   )
 }
-
 export default Navbar
+

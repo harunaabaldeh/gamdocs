@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../../Layout/index'
 
+
 const Index = () => {
   return (
     <Layout>
@@ -10,3 +11,4 @@ const Index = () => {
 }
 
 export default Index
+

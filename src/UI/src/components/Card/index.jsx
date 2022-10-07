@@ -5,9 +5,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { CardActionArea,CardActions } from '@mui/material';
+
 import { Link } from 'react-router-dom';
 
 const Index = () => {
+
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -29,10 +32,14 @@ const Index = () => {
       <CardActions>
         <Button size="small" color="primary">
           <Link to="/idcard/id" > more info</Link>
+          more info
+
         </Button>
       </CardActions>
     </Card>
   )
 }
 
+
 export default Index
+
