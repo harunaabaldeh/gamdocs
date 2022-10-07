@@ -7,7 +7,6 @@ import {BrowserRouter,Route,Routes} from "react-router-dom";
 import IdInfo from './components/pages/IDCard/id';
 import IdCards from './components/pages/IDCard/index'
 import PassPorts from './components/pages/PassPort/index'
-import {BrowserRouter} from "react-router-dom";
 
 
 
