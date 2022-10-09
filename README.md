@@ -1,2 +1,2 @@
 # gamdocs
-A place to your missing documenst in the gambia
+A place to find your missing documenst in the gambia
