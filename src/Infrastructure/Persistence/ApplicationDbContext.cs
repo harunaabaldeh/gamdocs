@@ -14,7 +14,7 @@ namespace Infrastructure.Persistence
 
 
 
-        public async Task<int> SaveChangesAsyn(CancellationToken cancellationToken = default)
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             return await base.SaveChangesAsync(cancellationToken);
         }
