@@ -1,16 +1,14 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { CardActionArea,CardActions } from '@mui/material';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { CardActionArea, CardActions } from "@mui/material";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const Index = () => {
-
-
+const Index = (props) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -22,22 +20,23 @@ const Index = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Name
+            {props.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          placeat, eius aliquid impedit natus corrupti maxime dolores ipsa distinctio.
+            {props.location}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          <Link to="/idcard/id" style={{textDecoration:"none",}}> more info</Link>
+          <Link to={`/idcard/${props.id}`} style={{ textDecoration: "none" }}>
+            {" "}
+            more info{" "}
+          </Link>
         </Button>
       </CardActions>
     </Card>
-  )
-}
+  );
+};
 
-
-export default Index
-
+export default Index;

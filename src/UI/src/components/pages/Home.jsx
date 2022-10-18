@@ -8,6 +8,24 @@ import { Typography } from "@mui/material";
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+
+  const data =[
+    {
+      id:1,
+      name:"John",
+      location:"Banjul",
+    },
+    {
+      id:2,
+      name:"Omar",
+      location:"Barra",
+    },
+    {
+      id:3,
+      name:"Binat",
+      location:"Banjul",
+    }
+  ]
   return (
     <Grid container spacing={2} mt={2}>
      <Box
@@ -17,15 +35,13 @@ const Home = () => {
 
     </Box>
       <Grid container item spacing={2}>
+        {data.map(item=>{
+          return(
         <Grid item xs={4}>
-          <Card />
+          <Card name={item.name} location={item.location} id={item.id} key={item.id}/>
         </Grid>
-        <Grid item xs={4}>
-          <Card />
-        </Grid>
-        <Grid item xs={4}>
-          <Card />
-        </Grid>
+          )
+        })}
         <Grid item>
           <Link to="/idcards" style={{textDecoration:"none",color:"white"}}>
           <Button variant="contained">See more</Button>
