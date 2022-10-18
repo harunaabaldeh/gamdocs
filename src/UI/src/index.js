@@ -15,7 +15,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/idcard/id" element={<IdInfo/>}/>
+      <Route path="/idcard/:id" element={<IdInfo/>}/>
       <Route path="/idcards" element={<IdCards />} />
       <Route path="/passports" element={<PassPorts />} />
     </Routes>

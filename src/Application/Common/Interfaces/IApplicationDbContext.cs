@@ -7,6 +7,6 @@ namespace Application.Common.Interfaces
     {
         DbSet<IdCard> IdCards { get; }
 
-        Task<int> SaveChangesAsyn(CancellationToken cancellationToken);
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
