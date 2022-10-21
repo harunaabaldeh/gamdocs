@@ -1,54 +1,71 @@
 import React, { useState } from "react";
-import { Box, TextField, Container, CssBaseline, Modal } from "@mui/material";
+import { Box, TextField, CssBaseline, Modal } from "@mui/material";
 import Typography from "@mui/material/Typography";
-
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import IdCard from './IdCard';
+import VotersCard from './VotersCard'
 const AddNewDoc = (props) => {
-  const [name, setName] = useState("");
-  return (
-    <Container component="main" maxWidth="xs">
-      <Modal
-        open={props.open}
-        onClose={props.handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Container components="main" maxWidth="xs" sx={{backgroundColor:"white"}}>
-          <CssBaseline />
-          <Box
-            sx={{
-              marginTop: 20,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Typography component="h1" variant="h5">
-              Add new Document form
-            </Typography>
+  const [docType, setDocType] = useState("");
+  const [lName, setLName] = useState("");
+  const [fName, setFName] = useState("");
+  const [address, setAddress] = useState("");
 
-            <Box
-              component="form"
-              onSubmit={props.handleSubmit}
-              noValidate
-              sx={{ mt: 1 }}
-            >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="name"
-                label="Owners Name"
-                type="text"
-                id="ownersName"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                autoFocus
-              />
-            </Box>
-          </Box>
-        </Container>
-      </Modal>
-    </Container>
+  // const [issueDate,setIssueDate] =useState("");
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "1px solid transparent",
+    boxShadow: 4,
+    p: 4,
+  };
+  const handleChange = (event) => {
+    setDocType(event.target.value);
+  };
+
+  return (
+    <Modal
+      open={props.open}
+      onClose={props.handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
+        <Typography component="h1" variant="h5">
+          Add new Document form
+        </Typography>
+        <FormControl sx={{ width: "100%", marginTop: 1 }}>
+          <InputLabel id="type-dropdowm">Document Type</InputLabel>
+          <Select
+            labelId="demo-simple-select-helper-label"
+            id="type_dropdown"
+            value={docType}
+            label="Document Type"
+            onChange={handleChange}
+          >
+            <MenuItem value="idCard">ID Card</MenuItem>
+            <MenuItem value="passPort">PassPort</MenuItem>
+            <MenuItem value="votersCard">Voters Card</MenuItem>
+          </Select>
+        </FormControl>
+
+        <Box
+          component="form"
+          onSubmit={props.handleSubmit}
+          noValidate
+          sx={{ mt: 1 }}
+        >
+          {docType === 'idCard' ? <IdCard/> : <VotersCard/>}
+        </Box>
+      </Box>
+    </Modal>
   );
 };
 
