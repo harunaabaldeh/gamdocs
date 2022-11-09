@@ -4,14 +4,31 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { CardActionArea, CardActions } from "@mui/material";
+import { CardActionArea, CardActions,Box } from "@mui/material";
+import { makeStyles } from '@mui/styles';
+
+
 
 import { Link } from "react-router-dom";
 
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+  },
+});
+
 const Index = (props) => {
+  // const classes = useStyles();
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+    <Card sx={{ maxWidth: 345 }} >
+      <CardActionArea >
         <CardMedia
           component="img"
           height="200"
@@ -19,21 +36,29 @@ const Index = (props) => {
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {props.name}
+          <Box sx={{ display:"flex",gap:1}}>
+          <Typography gutterBottom variant="h6"  component="h2">
+            {props.lname}
           </Typography>
+          <Typography gutterBottom variant="h6" component="h2" color="text.secondary">
+            {props.fname}
+          </Typography>
+          </Box>
+          
           <Typography variant="body2" color="text.secondary">
             {props.location}
           </Typography>
         </CardContent>
+     
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          <Link to={`/idcard/${props.id}`} style={{ textDecoration: "none" }}>
+          <Link to={`/${props.category}/${props.id}`} style={{ textDecoration: "none" }}>
             {" "}
             more info{" "}
           </Link>
         </Button>
+       
       </CardActions>
     </Card>
   );
