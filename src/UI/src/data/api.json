@@ -1,0 +1,62 @@
+{
+  "idcards": [
+    {
+      "lname": "Sarr",
+      "fname": "Ousman",
+      "category": "idcards",
+      "DOB": "1981-01-01",
+      "issueDate": "1972-06-22",
+      "expiryDate": "2022-11-03",
+      "id": 1
+    }
+  ],
+  "passports": [
+    {
+      "id": 3,
+      "lname": "Barry",
+      "fname": "Binat",
+      "location": "Banjul",
+      "category": "passports"
+    },
+    {
+      "id": 4,
+      "lname": "Doe",
+      "fname": "John",
+      "location": "Banjul",
+      "category": "passports"
+    },
+    {
+      "id": 21,
+      "lname": "Mannehh",
+      "fname": "Omar",
+      "location": "Barra",
+      "category": "passports"
+    },
+    {
+      "id": 31,
+      "lname": "Jallow",
+      "fname": "Sulayman",
+      "location": "Banjul",
+      "category": "passports"
+    },
+    {
+      "lname": "Jallow",
+      "fname": "Omar",
+      "category": "passports",
+      "DOB": "1972-06-01",
+      "issueDate": "1970-01-14",
+      "expiryDate": "2022-11-03",
+      "email": "j@j.com",
+      "id": 32
+    }
+  ],
+  "voterscards": [
+    {
+      "id": 1,
+      "lname": "Doe",
+      "fname": "John",
+      "location": "Banjul",
+      "category": "voterscards"
+    }
+  ]
+}
