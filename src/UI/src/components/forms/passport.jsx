@@ -12,10 +12,9 @@ const Passport = () => {
             name="email"
             label="Email"
             type="email"
-            // value={email}
             variant="filled"
             autoFocus
-            // onChange={(e) => setEmail(e.target.value)}
+           
           />
         
     </React.Fragment>

@@ -5,10 +5,17 @@ const VotersCard = () => {
   return (
     <React.Fragment>
       <TextField
-      fullWidth
-      required
-      value="sdf"
-      />
+            margin="normal"
+            required
+            fullWidth
+            name="nin"
+            label="NIN number"
+            type="text"
+            // value={nin}
+            variant="filled"
+            autoFocus
+            // onChange={(e) => setNin(e.target.value)}
+          />
     </React.Fragment>
   )
 }

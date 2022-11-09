@@ -1,56 +1,48 @@
-import React, { useState } from "react";
+
+import React,{ useState,useEffect }from "react";
 import Layout from "../../Layout/index";
 import { useParams } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Divider } from "@mui/material";
+import moment from "moment"
+import Box from '@mui/material/Box'
 
 const IdInfo = () => {
-  const params = useParams();
-  const data = [
-    {
-      id: "1",
-      lname: "Smith",
-      fname: "John",
-      location: "Banjul",
-    },
-    {
-      id: "2",
-      name: "Omar",
-      location: "Barra",
-    },
-    {
-      id: "3",
-      name: "Binat",
-      location: "Banjul",
-    },
-  ];
-  const id = params.id;
+  const {id}= useParams();
+  const [idData,setIdData] = useState([]);
+ 
+ useEffect(()=>{
+  fetch('http://localhost:8000/idcards',{
+    method:'GET'
+  })
+  .then((response) => response.json())
+  .then((data) => setIdData(data));
+
+ },[])
+  
+  
 
   return (
     <Layout>
-      <Paper sx={{ minHeight: "400px",display:"flex", gap:1}} >
+      <Paper sx={{ minHeight: "400px",display:"flex", gap:1,backgroundColor:"grey"}} >
 
-        {/* {data.filter(item=>item.id === id).map(item=>{
-        return(
-          <div key={item.id}>
-            <Typography variant="h5">name:{item.name}</Typography>
-            <Typography>location: {item.location}</Typography>
-          </div>
-        )
-       })} */}
-
+      {idData
+          .filter((item) => item.id == id)
+          .map((item) => {
+            return (
+              <Box key={item.id} sx={{ minHeight: "400px",display:"flex", gap:1,backgroundColor:"grey"}}>
             <Grid>
             <img
               src="https://images.unsplash.com/photo-1612364461060-38075479ec26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1314&q=80"
               alt=""
               height="100%"
               width="100%"
-              srcset=""
+                         
             />
             </Grid>
-            <Grid container display="flex" flexDirection="column"width="200%">
+            <Grid container display="flex" flexDirection="column"width="100%">
             <Grid
               
               minHeight={50}
@@ -65,11 +57,11 @@ const IdInfo = () => {
             </Grid>
             <Divider />
             <Grid>
-              <Typography variant="subtitle1">first name/nom : </Typography>
-              <Typography variant="subtitle1">last name/prenom : </Typography>
-              <Typography variant="subtitle1">Date of Birth: </Typography>
-              <Typography variant="subtitle1">Date of Expiry: </Typography>
-              <Typography variant="subtitle1">Date of Issue: </Typography>
+              <Typography variant="subtitle1">first name/nom : {item.fname} </Typography>
+              <Typography variant="subtitle1">last name/prenom : {item.lname} </Typography>
+              <Typography variant="subtitle1">Date of Birth: {moment(item.DOB).format('MMMM Do YYYY')}</Typography>
+              <Typography variant="subtitle1">Date of Expiry: {moment(item.expiryDate).format('MMMM Do YYYY')}</Typography>
+              <Typography variant="subtitle1">Date of Issue: {moment(item.issueDate).format('MMMM Do YYYY')}</Typography>
             </Grid>
             <Grid
            
@@ -83,7 +75,17 @@ const IdInfo = () => {
             >
               <Typography variant="button">Founder Details</Typography>
             </Grid>
+            <Divider />
+            <Grid>
+              <Typography variant="subtitle1">Full Name :  </Typography>
+              <Typography variant="subtitle1">Phone: </Typography>
+              <Typography variant="subtitle1">Email </Typography>
+              <Typography variant="subtitle1">Address:  </Typography>
             </Grid>
+            </Grid>
+              </Box>
+            )})}
+          
 
       </Paper>
     </Layout>
