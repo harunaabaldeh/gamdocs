@@ -6,8 +6,8 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Divider } from "@mui/material";
-import {data} from "./../../../data/data"
 import moment from "moment"
+import Box from '@mui/material/Box'
 
 const IdInfo = () => {
   const {id}= useParams();
@@ -21,6 +21,7 @@ const IdInfo = () => {
   .then((data) => setPassportData(data));
 
  },[])
+
   
   
 
@@ -32,17 +33,18 @@ const IdInfo = () => {
           .filter((item) => item.id == id)
           .map((item) => {
             return (
-              <>
+              <Box key={item.id} sx={{ minHeight: "400px",display:"flex", gap:1,backgroundColor:"grey"}}>
+
+          
             <Grid>
             <img
               src="https://images.unsplash.com/photo-1612364461060-38075479ec26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1314&q=80"
               alt=""
               height="100%"
               width="100%"
-              srcset=""
             />
             </Grid>
-            <Grid container display="flex" flexDirection="column"width="200%">
+            <Grid container display="flex" flexDirection="column"width="100%">
             <Grid
               
               minHeight={50}
@@ -84,7 +86,7 @@ const IdInfo = () => {
               <Typography variant="subtitle1">Address:  </Typography>
             </Grid>
             </Grid>
-              </>
+              </Box>
             )})}
           
 

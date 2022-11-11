@@ -4,7 +4,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can run: --
+## `json-server --watch -p8000 ./src/data/api.json`
+Run the json server in a separate terminal together with the development server
+is just a dummy api for the data
+
+ Resources
+  http://localhost:8000/idcards
+  http://localhost:8000/passports
+  http://localhost:8000/voterscards
+
+  Home
+  http://localhost:8000
 
 ### `npm start`
 
